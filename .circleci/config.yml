@@ -19,7 +19,7 @@ steps:
       - checkout
       - run: curl -sS https://getcomposer.org/installer | php -- --filename=composer
       - run: ./composer install
-      
+      - run: ./vendor/bin/phpunit
 
       # Download and cache dependencies
       - restore_cache:
@@ -36,4 +36,4 @@ steps:
           key: v1-dependencies-{{ checksum "composer.json" }}
         
       # run tests!
-      - run: ./vendor/bin/phpunit
+      - run: phpunit
