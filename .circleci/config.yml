@@ -18,8 +18,9 @@ jobs:
 
     steps:
       - checkout
-      - run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-      - run: composer install
+      - run: curl -sS https://getcomposer.org/installer | php -- --filename=composer
+      - run: ./composer install
+      - run: ./vendor/bin/phpunit
 
       # Download and cache dependencies
       - restore_cache:
