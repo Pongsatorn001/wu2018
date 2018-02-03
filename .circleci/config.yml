@@ -15,12 +15,11 @@ jobs:
       # - image: circleci/mysql:9.4
 
     working_directory: ~/wu2018
-
-    steps:
+steps:
       - checkout
       - run: curl -sS https://getcomposer.org/installer | php -- --filename=composer
       - run: ./composer install
-      - run: ./vendor/bin/phpunit
+      
 
       # Download and cache dependencies
       - restore_cache:
@@ -37,4 +36,4 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
         
       # run tests!
-      - run: phpunit
+      - run: ./vendor/bin/phpunit
