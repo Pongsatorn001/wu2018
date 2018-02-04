@@ -18,22 +18,14 @@ class AI
      */
     public static function getGender($text)
     {
-        $pp = ["ครับ","ค่าบ"];
-        $kk = ["ค่ะ","ค่า"];
-
-        $pp1 = count($pp);
-        $kk1 = count($kk);
-
-        for($i=0; $i>= $pp1 || $i> $kk1; $i++){
-            if ($text == $pp) {
-                return 'Male';
-            } else if ($text == $kk) {
-                return 'Female';
-            } else {
-                return 'Unknown';
-            }
-        }
        
+        if (strpos($text, "ครับ")) {
+            return 'Male';
+        } else if (strpos($text, "ค่ะ") !== false) {
+            return 'Female';
+        } else {
+            return 'Unknown';
+        }
 
         
     }
