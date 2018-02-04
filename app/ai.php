@@ -32,13 +32,7 @@ class AI
        
 
 
-        if (strpos($text, "ครับ")){
-            return 'Male';
-        }else if (strpos($text, "ค่ะ") !== false){
-            return 'Female';
-        }else{
-            return 'Unknown';
-        }
+       
         
     }
 
